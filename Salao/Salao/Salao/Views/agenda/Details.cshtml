@@ -1,0 +1,42 @@
+﻿@model Salao.agenda
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>agenda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeCliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeCliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataAgenda)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataAgenda)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.funcionario.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.funcionario.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdAgenda }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

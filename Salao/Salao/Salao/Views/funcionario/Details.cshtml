@@ -1,0 +1,42 @@
+﻿@model Salao.funcionario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>funcionario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cargo.nomeCargo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cargo.nomeCargo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdFuncionario }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

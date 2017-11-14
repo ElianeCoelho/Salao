@@ -1,0 +1,122 @@
+﻿@model Salao.cliente
+<html>
+<head>
+    <title>Hielo by TEMPLATED</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="~/Content/css/Style.css" />
+</head>
+
+
+<body class="subpage">
+
+    <!-- Header -->
+    <header id="header">
+        <div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div>
+        <a href="#menu">Menu</a>
+    </header>
+
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Sobre", "About", "Home")</li>
+            <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+            <li>@Html.ActionLink("generic", "gerenic", "Home")</li>
+            <li>@Html.ActionLink("Entrar ou Cadastrar-se", "Login", "cliente")</li>
+        </ul>
+    </nav>
+
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+
+
+
+            <div id="conteinerLogin" class="container">
+                <div class="form-login">
+                    <div class="panel panel-default" style="border:solid 1px;">
+                        <div class="panel-heading">
+                            <div class="panel-title" style="text-align:center; color:deeppink; font-size:large">LOGIN DO SISTEMA</div>
+                        </div>
+
+
+                        
+
+
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
+
+                        @Html.LabelFor(model => model.Senha, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+                        <div style="margin-bottom: 25px" class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-2" style="text-align:center">
+                                <label style="font-size:small">
+                                    <input type="checkbox"/> Salvar Senha
+                                </label>
+                            </div>
+
+                        </div>
+
+
+
+                        <div style="margin-top:10px" class="form-group">
+                            <div class="col-sm-12 controls">
+
+                                <input type="submit" value="Login" class="btn primary btn-lg" />
+
+                                @Html.ActionLink("Cadastrar-se", "Create", "cliente")
+
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+    }
+
+
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+</body>
+</html>
+
+

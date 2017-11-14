@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="salaoModelStoreContainer" CdmEntityContainer="salaoEntities">
+    <EntitySetMapping Name="agenda">
+      <EntityTypeMapping TypeName="salaoModel.agenda">
+        <MappingFragment StoreEntitySet="agenda">
+          <ScalarProperty Name="IdAgenda" ColumnName="IdAgenda" />
+          <ScalarProperty Name="NomeCliente" ColumnName="NomeCliente" />
+          <ScalarProperty Name="DataAgenda" ColumnName="DataAgenda" />
+          <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cargo">
+      <EntityTypeMapping TypeName="salaoModel.cargo">
+        <MappingFragment StoreEntitySet="cargo">
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="nomeCargo" ColumnName="nomeCargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="salaoModel.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Cpf" ColumnName="Cpf" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="NomeSalao" ColumnName="NomeSalao" />
+          <ScalarProperty Name="Cep" ColumnName="Cep" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="ConfirmaSenha" ColumnName="ConfirmaSenha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="funcionario">
+      <EntityTypeMapping TypeName="salaoModel.funcionario">
+        <MappingFragment StoreEntitySet="funcionario">
+          <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
