@@ -15,7 +15,7 @@ namespace Salao.Controllers
         private salaoEntities db = new salaoEntities();
 
         // GET: cliente
-        public ActionResult Index()
+        public ActionResult PerfilCliente()
         {
 
             int idSessao = int.Parse(Session["IdCliente"].ToString());
@@ -132,7 +132,10 @@ namespace Salao.Controllers
         }
 
 
-
+        public ActionResult Index()
+        {
+            return View();
+        }
 
 
         //Login

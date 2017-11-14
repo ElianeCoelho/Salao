@@ -22,7 +22,6 @@
             <li>@Html.ActionLink("Home", "Index", "Home")</li>
             <li>@Html.ActionLink("Sobre", "About", "Home")</li>
             <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
-            <li>@Html.ActionLink("generic", "gerenic", "Home")</li>
             <li>@Html.ActionLink("Entrar ou Cadastrar-se", "Login", "cliente")</li>
         </ul>
     </nav>
@@ -44,7 +43,7 @@
 
             <div id="conteinerLogin" class="container">
                 <div class="form-login">
-                    <div class="panel panel-default" style="border:solid 1px;">
+                    <div class="panel panel-default">
                         <div class="panel-heading">
                             <div class="panel-title" style="text-align:center; color:deeppink; font-size:large">LOGIN DO SISTEMA</div>
                         </div>
@@ -69,14 +68,14 @@
                             @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger" })
                         </div>
 
-                        <div class="form-group">
+                        @*<div class="form-group">
                             <div class="col-md-2" style="text-align:center">
                                 <label style="font-size:small">
                                     <input type="checkbox"/> Salvar Senha
                                 </label>
                             </div>
 
-                        </div>
+                        </div>*@
 
 
 

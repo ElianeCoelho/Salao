@@ -267,7 +267,7 @@
     <Content Include="Views\Cliente\Delete.cshtml" />
     <Content Include="Views\Cliente\Details.cshtml" />
     <Content Include="Views\Cliente\Edit.cshtml" />
-    <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\Cliente\PerfilCliente.cshtml" />
     <Content Include="Views\funcionario\Create.cshtml" />
     <Content Include="Views\funcionario\Delete.cshtml" />
     <Content Include="Views\funcionario\Details.cshtml" />
@@ -278,7 +278,7 @@
     <Content Include="Views\cargo\Details.cshtml" />
     <Content Include="Views\cargo\Edit.cshtml" />
     <Content Include="Views\cargo\Index.cshtml" />
-    <Content Include="Views\Home\gerenic.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\funcionario\Login.cshtml" />
     <Content Include="Views\Cliente\Login.cshtml" />
   </ItemGroup>

@@ -1,111 +1,76 @@
-﻿@model IEnumerable<Salao.cliente>
+﻿<!DOCTYPE HTML>
 
-@{
-    ViewBag.Title = "Index";
-}
+<html>
+<head>
+    <title>Hielo by TEMPLATED</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body class="subpage">
 
-<h2>Index</h2>
+    <!-- Header -->
+    <header id="header">
+        <div class="logo"><a href="index.html">Hielo <span>by TEMPLATED</span></a></div>
+        <a href="#menu">Menu</a>
+    </header>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nome)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cpf)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Telefone)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.NomeSalao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cep)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Rua)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Numero)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Complemento)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Bairro)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Cidade)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Estado)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Senha)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ConfirmaSenha)
-        </th>
-        <th></th>
-    </tr>
+    <!-- Nav -->
+    <nav id="menu">
+        <ul class="links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="generic.html">Generic</a></li>
+            <li><a href="elements.html">Elements</a></li>
+        </ul>
+    </nav>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nome)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cpf)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefone)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NomeSalao)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cep)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Rua)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Numero)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Complemento)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Bairro)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Cidade)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Estado)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Senha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ConfirmaSenha)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.IdCliente }) |
-            @Html.ActionLink("Details", "Details", new { id=item.IdCliente }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.IdCliente })
-        </td>
-    </tr>
-}
+    <!-- One -->
+    <section id="One" class="wrapper style3">
+        <div class="inner">
+            <header class="align-center">
+                <p>Eleifend vitae urna</p>
+                <h2>Generic Page Template</h2>
+            </header>
+        </div>
+    </section>
 
-</table>
+    <!-- Two -->
+    <section id="two" class="wrapper style2">
+        <div class="inner">
+            <div class="box">
+                <div class="content">
+                    <header class="align-center">
+                        <p>Viva experiências incríveis, podemos lhe ajudar!</p>
+                        <h2>Olá :) @Session["Email"].ToString()</h2>
+
+
+                    </header>
+                    <div>
+                        <ul style="text-align: center" >
+                            @Html.ActionLink("Agenda", "Create", "agenda")<br/>
+                            @Html.ActionLink("Gerenciar Funcionários", "Index", "funcionario")<br/>
+                            @Html.ActionLink("Meu Perfil", "PerfilCliente", "cliente")<br/>
+                            @Html.ActionLink("Gerenciar Categoria de Serviço", "Create", "cargo")<br/>
+                            @Html.ActionLink("Sair", "Index", "Home")
+
+
+
+
+                        </ul>
+                    </div>    
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/skel.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
