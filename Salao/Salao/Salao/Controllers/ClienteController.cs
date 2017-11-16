@@ -173,6 +173,17 @@ namespace Salao.Controllers
 
 
 
+        public ActionResult EncerrarSessao()
+        {
+
+            Session.Clear();
+            Session.Abandon();
+            return RedirectToAction("Index", "Home");
+
+        }
+
+
+
 
 
 
