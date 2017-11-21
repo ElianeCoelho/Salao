@@ -6,9 +6,6 @@
 
 <h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -47,12 +44,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Email)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Senha)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ConfirmaSenha)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -94,12 +91,12 @@
         <td>
             @Html.DisplayFor(modelItem => item.Email)
         </td>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.Senha)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ConfirmaSenha)
-        </td>
+        </td>*@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.IdCliente }) |
             @Html.ActionLink("Details", "Details", new { id=item.IdCliente }) |

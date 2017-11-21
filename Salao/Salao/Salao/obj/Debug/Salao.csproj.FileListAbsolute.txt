@@ -280,3 +280,7 @@ C:\Users\eliane\Documents\Clound matérias\SalaoGit\Salao\Salao\Salao\obj\Debug\
 C:\Users\eliane\Documents\Clound matérias\SalaoGit\Salao\Salao\Salao\obj\Debug\Salao.csproj.CoreCompileInputs.cache
 C:\Users\eliane\Documents\Clound matérias\SalaoGit\Salao\Salao\Salao\obj\Debug\Salao.dll
 C:\Users\eliane\Documents\Clound matérias\SalaoGit\Salao\Salao\Salao\obj\Debug\Salao.pdb
+C:\Users\josle\Documents\ADS 4 Etapa\Computação em Nuvem\Salao\Salao\Salao\Salao\obj\Debug\Salao.csprojResolveAssemblyReference.cache
+C:\Users\josle\Documents\ADS 4 Etapa\Computação em Nuvem\Salao\Salao\Salao\Salao\obj\Debug\Salao.csproj.CoreCompileInputs.cache
+C:\Users\josle\Documents\ADS 4 Etapa\Computação em Nuvem\Salao\Salao\Salao\Salao\obj\Debug\Salao.dll
+C:\Users\josle\Documents\ADS 4 Etapa\Computação em Nuvem\Salao\Salao\Salao\Salao\obj\Debug\Salao.pdb

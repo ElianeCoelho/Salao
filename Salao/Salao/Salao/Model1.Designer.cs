@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\eliane\Documents\Clound matérias\Salao\Salao\Salao\Model1.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\josle\Documents\ADS 4 Etapa\Computação em Nuvem\Salao\Salao\Salao\Salao\Model1.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
