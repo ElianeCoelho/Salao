@@ -1,53 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="salaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="salaoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="salaoModelStoreContainer">
+    <EntitySet Name="agenda" EntityType="salaoModel.Store.agenda" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cargo" EntityType="salaoModel.Store.cargo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cliente" EntityType="salaoModel.Store.cliente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="funcionario" EntityType="salaoModel.Store.funcionario" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__agenda__IdFuncio__2B3F6F97" Association="salaoModel.Store.FK__agenda__IdFuncio__2B3F6F97">
+      <End Role="funcionario" EntitySet="funcionario" />
+      <End Role="agenda" EntitySet="agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__funcionar__IdCar__276EDEB3" Association="salaoModel.Store.FK__funcionar__IdCar__276EDEB3">
+      <End Role="cargo" EntitySet="cargo" />
+      <End Role="funcionario" EntitySet="funcionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__funcionar__IdCli__286302EC" Association="salaoModel.Store.FK__funcionar__IdCli__286302EC">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="funcionario" EntitySet="funcionario" />
+    </AssociationSet>
+  </EntityContainer>
   <EntityType Name="agenda">
     <Key>
       <PropertyRef Name="IdAgenda" />
     </Key>
     <Property Name="IdAgenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NomeCliente" Type="varchar" MaxLength="50" />
-    <Property Name="DataAgenda" Type="datetime" />
-    <Property Name="IdFuncionario" Type="int" />
+    <Property Name="NomeCliente" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="DataAgenda" Type="datetime" Nullable="true" />
+    <Property Name="IdFuncionario" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="cargo">
     <Key>
       <PropertyRef Name="IdCargo" />
     </Key>
     <Property Name="IdCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="nomeCargo" Type="varchar" MaxLength="30" />
+    <Property Name="nomeCargo" Type="varchar" Nullable="true" MaxLength="30" />
   </EntityType>
   <EntityType Name="cliente">
     <Key>
       <PropertyRef Name="IdCliente" />
     </Key>
     <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="varchar" MaxLength="50" />
-    <Property Name="Cpf" Type="varchar" MaxLength="11" />
-    <Property Name="Telefone" Type="varchar" MaxLength="14" />
-    <Property Name="NomeSalao" Type="varchar" MaxLength="60" />
-    <Property Name="Cep" Type="varchar" MaxLength="14" />
-    <Property Name="Rua" Type="varchar" MaxLength="60" />
-    <Property Name="Numero" Type="varchar" MaxLength="11" />
-    <Property Name="Complemento" Type="varchar" MaxLength="20" />
-    <Property Name="Bairro" Type="varchar" MaxLength="60" />
-    <Property Name="Cidade" Type="varchar" MaxLength="60" />
-    <Property Name="Estado" Type="varchar" MaxLength="10" />
-    <Property Name="Email" Type="varchar" MaxLength="60" />
-    <Property Name="Senha" Type="varchar" MaxLength="30" />
-    <Property Name="ConfirmaSenha" Type="varchar" MaxLength="30" />
+    <Property Name="Nome" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Cpf" Type="varchar" Nullable="true" MaxLength="11" />
+    <Property Name="Telefone" Type="varchar" Nullable="true" MaxLength="14" />
+    <Property Name="NomeSalao" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="Cep" Type="varchar" Nullable="true" MaxLength="14" />
+    <Property Name="Rua" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="Numero" Type="varchar" Nullable="true" MaxLength="11" />
+    <Property Name="Complemento" Type="varchar" Nullable="true" MaxLength="20" />
+    <Property Name="Bairro" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="Cidade" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="Estado" Type="varchar" Nullable="true" MaxLength="10" />
+    <Property Name="Email" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="Senha" Type="varchar" Nullable="true" MaxLength="30" />
+    <Property Name="ConfirmaSenha" Type="varchar" Nullable="true" MaxLength="30" />
   </EntityType>
   <EntityType Name="funcionario">
     <Key>
       <PropertyRef Name="IdFuncionario" />
     </Key>
     <Property Name="IdFuncionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nome" Type="varchar" MaxLength="50" />
-    <Property Name="IdCargo" Type="int" />
-    <Property Name="IdCliente" Type="int" />
+    <Property Name="Nome" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="IdCargo" Type="int" Nullable="true" />
+    <Property Name="IdCliente" Type="int" Nullable="true" />
   </EntityType>
   <Association Name="FK__agenda__IdFuncio__2B3F6F97">
-    <End Role="funcionario" Type="Self.funcionario" Multiplicity="0..1" />
-    <End Role="agenda" Type="Self.agenda" Multiplicity="*" />
+    <End Role="funcionario" Type="salaoModel.Store.funcionario" Multiplicity="0..1" />
+    <End Role="agenda" Type="salaoModel.Store.agenda" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="funcionario">
         <PropertyRef Name="IdFuncionario" />
@@ -58,8 +76,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__funcionar__IdCar__276EDEB3">
-    <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
-    <End Role="funcionario" Type="Self.funcionario" Multiplicity="*" />
+    <End Role="cargo" Type="salaoModel.Store.cargo" Multiplicity="0..1" />
+    <End Role="funcionario" Type="salaoModel.Store.funcionario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="cargo">
         <PropertyRef Name="IdCargo" />
@@ -70,8 +88,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__funcionar__IdCli__286302EC">
-    <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
-    <End Role="funcionario" Type="Self.funcionario" Multiplicity="*" />
+    <End Role="cliente" Type="salaoModel.Store.cliente" Multiplicity="0..1" />
+    <End Role="funcionario" Type="salaoModel.Store.funcionario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="cliente">
         <PropertyRef Name="IdCliente" />
@@ -81,22 +99,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="salaoModelStoreContainer">
-    <EntitySet Name="agenda" EntityType="Self.agenda" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="cargo" EntityType="Self.cargo" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="funcionario" EntityType="Self.funcionario" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__agenda__IdFuncio__2B3F6F97" Association="Self.FK__agenda__IdFuncio__2B3F6F97">
-      <End Role="funcionario" EntitySet="funcionario" />
-      <End Role="agenda" EntitySet="agenda" />
-    </AssociationSet>
-    <AssociationSet Name="FK__funcionar__IdCar__276EDEB3" Association="Self.FK__funcionar__IdCar__276EDEB3">
-      <End Role="cargo" EntitySet="cargo" />
-      <End Role="funcionario" EntitySet="funcionario" />
-    </AssociationSet>
-    <AssociationSet Name="FK__funcionar__IdCli__286302EC" Association="Self.FK__funcionar__IdCli__286302EC">
-      <End Role="cliente" EntitySet="cliente" />
-      <End Role="funcionario" EntitySet="funcionario" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

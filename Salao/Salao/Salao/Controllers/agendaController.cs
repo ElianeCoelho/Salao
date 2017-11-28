@@ -39,7 +39,12 @@ namespace Salao.Controllers
         // GET: agenda/Create
         public ActionResult Create()
         {
-            ViewBag.IdFuncionario = new SelectList(db.funcionario, "IdFuncionario", "Nome");
+
+            int idSessao = int.Parse(Session["IdCliente"].ToString());
+
+            var filtro = from f in db.funcionario where f.IdCliente == idSessao select f;
+
+            ViewBag.IdFuncionario = new SelectList(filtro, "IdFuncionario", "Nome");
             return View();
         }
 

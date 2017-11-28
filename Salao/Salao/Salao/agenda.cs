@@ -11,18 +11,14 @@ namespace Salao
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class agenda
     {
         public int IdAgenda { get; set; }
-        [Display(Name = "Cliente")]
         public string NomeCliente { get; set; }
         public Nullable<System.DateTime> DataAgenda { get; set; }
-        [Display(Name = "Funcionário")]
         public Nullable<int> IdFuncionario { get; set; }
-            
-       
+    
         public virtual funcionario funcionario { get; set; }
     }
 }

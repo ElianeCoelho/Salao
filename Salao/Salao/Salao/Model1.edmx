@@ -4,107 +4,107 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="salaoModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="agenda">
-          <Key>
-            <PropertyRef Name="IdAgenda" />
-          </Key>
-          <Property Name="IdAgenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="NomeCliente" Type="varchar" MaxLength="50" />
-          <Property Name="DataAgenda" Type="datetime" />
-          <Property Name="IdFuncionario" Type="int" />
-        </EntityType>
-        <EntityType Name="cargo">
-          <Key>
-            <PropertyRef Name="IdCargo" />
-          </Key>
-          <Property Name="IdCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="nomeCargo" Type="varchar" MaxLength="30" />
-        </EntityType>
-        <EntityType Name="cliente">
-          <Key>
-            <PropertyRef Name="IdCliente" />
-          </Key>
-          <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nome" Type="varchar" MaxLength="50" />
-          <Property Name="Cpf" Type="varchar" MaxLength="11" />
-          <Property Name="Telefone" Type="varchar" MaxLength="14" />
-          <Property Name="NomeSalao" Type="varchar" MaxLength="60" />
-          <Property Name="Cep" Type="varchar" MaxLength="14" />
-          <Property Name="Rua" Type="varchar" MaxLength="60" />
-          <Property Name="Numero" Type="varchar" MaxLength="11" />
-          <Property Name="Complemento" Type="varchar" MaxLength="20" />
-          <Property Name="Bairro" Type="varchar" MaxLength="60" />
-          <Property Name="Cidade" Type="varchar" MaxLength="60" />
-          <Property Name="Estado" Type="varchar" MaxLength="10" />
-          <Property Name="Email" Type="varchar" MaxLength="60" />
-          <Property Name="Senha" Type="varchar" MaxLength="30" />
-          <Property Name="ConfirmaSenha" Type="varchar" MaxLength="30" />
-        </EntityType>
-        <EntityType Name="funcionario">
-          <Key>
-            <PropertyRef Name="IdFuncionario" />
-          </Key>
-          <Property Name="IdFuncionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Nome" Type="varchar" MaxLength="50" />
-          <Property Name="IdCargo" Type="int" />
-          <Property Name="IdCliente" Type="int" />
-        </EntityType>
-        <Association Name="FK__agenda__IdFuncio__2B3F6F97">
-          <End Role="funcionario" Type="Self.funcionario" Multiplicity="0..1" />
-          <End Role="agenda" Type="Self.agenda" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="funcionario">
-              <PropertyRef Name="IdFuncionario" />
-            </Principal>
-            <Dependent Role="agenda">
-              <PropertyRef Name="IdFuncionario" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__funcionar__IdCar__276EDEB3">
-          <End Role="cargo" Type="Self.cargo" Multiplicity="0..1" />
-          <End Role="funcionario" Type="Self.funcionario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cargo">
-              <PropertyRef Name="IdCargo" />
-            </Principal>
-            <Dependent Role="funcionario">
-              <PropertyRef Name="IdCargo" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__funcionar__IdCli__286302EC">
-          <End Role="cliente" Type="Self.cliente" Multiplicity="0..1" />
-          <End Role="funcionario" Type="Self.funcionario" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="cliente">
-              <PropertyRef Name="IdCliente" />
-            </Principal>
-            <Dependent Role="funcionario">
-              <PropertyRef Name="IdCliente" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityContainer Name="salaoModelStoreContainer">
-          <EntitySet Name="agenda" EntityType="Self.agenda" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cargo" EntityType="Self.cargo" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="funcionario" EntityType="Self.funcionario" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__agenda__IdFuncio__2B3F6F97" Association="Self.FK__agenda__IdFuncio__2B3F6F97">
-            <End Role="funcionario" EntitySet="funcionario" />
-            <End Role="agenda" EntitySet="agenda" />
-          </AssociationSet>
-          <AssociationSet Name="FK__funcionar__IdCar__276EDEB3" Association="Self.FK__funcionar__IdCar__276EDEB3">
-            <End Role="cargo" EntitySet="cargo" />
-            <End Role="funcionario" EntitySet="funcionario" />
-          </AssociationSet>
-          <AssociationSet Name="FK__funcionar__IdCli__286302EC" Association="Self.FK__funcionar__IdCli__286302EC">
-            <End Role="cliente" EntitySet="cliente" />
-            <End Role="funcionario" EntitySet="funcionario" />
-          </AssociationSet>
-        </EntityContainer>
-      </Schema></edmx:StorageModels>
+    <Schema Namespace="salaoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="salaoModelStoreContainer">
+    <EntitySet Name="agenda" EntityType="salaoModel.Store.agenda" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cargo" EntityType="salaoModel.Store.cargo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="cliente" EntityType="salaoModel.Store.cliente" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="funcionario" EntityType="salaoModel.Store.funcionario" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__agenda__IdFuncio__2B3F6F97" Association="salaoModel.Store.FK__agenda__IdFuncio__2B3F6F97">
+      <End Role="funcionario" EntitySet="funcionario" />
+      <End Role="agenda" EntitySet="agenda" />
+    </AssociationSet>
+    <AssociationSet Name="FK__funcionar__IdCar__276EDEB3" Association="salaoModel.Store.FK__funcionar__IdCar__276EDEB3">
+      <End Role="cargo" EntitySet="cargo" />
+      <End Role="funcionario" EntitySet="funcionario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__funcionar__IdCli__286302EC" Association="salaoModel.Store.FK__funcionar__IdCli__286302EC">
+      <End Role="cliente" EntitySet="cliente" />
+      <End Role="funcionario" EntitySet="funcionario" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="agenda">
+    <Key>
+      <PropertyRef Name="IdAgenda" />
+    </Key>
+    <Property Name="IdAgenda" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NomeCliente" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="DataAgenda" Type="datetime" Nullable="true" />
+    <Property Name="IdFuncionario" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="cargo">
+    <Key>
+      <PropertyRef Name="IdCargo" />
+    </Key>
+    <Property Name="IdCargo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomeCargo" Type="varchar" Nullable="true" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="cliente">
+    <Key>
+      <PropertyRef Name="IdCliente" />
+    </Key>
+    <Property Name="IdCliente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="Cpf" Type="varchar" Nullable="true" MaxLength="11" />
+    <Property Name="Telefone" Type="varchar" Nullable="true" MaxLength="14" />
+    <Property Name="NomeSalao" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="Cep" Type="varchar" Nullable="true" MaxLength="14" />
+    <Property Name="Rua" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="Numero" Type="varchar" Nullable="true" MaxLength="11" />
+    <Property Name="Complemento" Type="varchar" Nullable="true" MaxLength="20" />
+    <Property Name="Bairro" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="Cidade" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="Estado" Type="varchar" Nullable="true" MaxLength="10" />
+    <Property Name="Email" Type="varchar" Nullable="true" MaxLength="60" />
+    <Property Name="Senha" Type="varchar" Nullable="true" MaxLength="30" />
+    <Property Name="ConfirmaSenha" Type="varchar" Nullable="true" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="funcionario">
+    <Key>
+      <PropertyRef Name="IdFuncionario" />
+    </Key>
+    <Property Name="IdFuncionario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" Nullable="true" MaxLength="50" />
+    <Property Name="IdCargo" Type="int" Nullable="true" />
+    <Property Name="IdCliente" Type="int" Nullable="true" />
+  </EntityType>
+  <Association Name="FK__agenda__IdFuncio__2B3F6F97">
+    <End Role="funcionario" Type="salaoModel.Store.funcionario" Multiplicity="0..1" />
+    <End Role="agenda" Type="salaoModel.Store.agenda" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="funcionario">
+        <PropertyRef Name="IdFuncionario" />
+      </Principal>
+      <Dependent Role="agenda">
+        <PropertyRef Name="IdFuncionario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__funcionar__IdCar__276EDEB3">
+    <End Role="cargo" Type="salaoModel.Store.cargo" Multiplicity="0..1" />
+    <End Role="funcionario" Type="salaoModel.Store.funcionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cargo">
+        <PropertyRef Name="IdCargo" />
+      </Principal>
+      <Dependent Role="funcionario">
+        <PropertyRef Name="IdCargo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__funcionar__IdCli__286302EC">
+    <End Role="cliente" Type="salaoModel.Store.cliente" Multiplicity="0..1" />
+    <End Role="funcionario" Type="salaoModel.Store.funcionario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cliente">
+        <PropertyRef Name="IdCliente" />
+      </Principal>
+      <Dependent Role="funcionario">
+        <PropertyRef Name="IdCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="salaoModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -217,60 +217,59 @@
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
-      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="salaoModelStoreContainer" CdmEntityContainer="salaoEntities">
-          <EntitySetMapping Name="agenda">
-            <EntityTypeMapping TypeName="salaoModel.agenda">
-              <MappingFragment StoreEntitySet="agenda">
-                <ScalarProperty Name="IdAgenda" ColumnName="IdAgenda" />
-                <ScalarProperty Name="NomeCliente" ColumnName="NomeCliente" />
-                <ScalarProperty Name="DataAgenda" ColumnName="DataAgenda" />
-                <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cargo">
-            <EntityTypeMapping TypeName="salaoModel.cargo">
-              <MappingFragment StoreEntitySet="cargo">
-                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
-                <ScalarProperty Name="nomeCargo" ColumnName="nomeCargo" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="cliente">
-            <EntityTypeMapping TypeName="salaoModel.cliente">
-              <MappingFragment StoreEntitySet="cliente">
-                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
-                <ScalarProperty Name="Nome" ColumnName="Nome" />
-                <ScalarProperty Name="Cpf" ColumnName="Cpf" />
-                <ScalarProperty Name="Telefone" ColumnName="Telefone" />
-                <ScalarProperty Name="NomeSalao" ColumnName="NomeSalao" />
-                <ScalarProperty Name="Cep" ColumnName="Cep" />
-                <ScalarProperty Name="Rua" ColumnName="Rua" />
-                <ScalarProperty Name="Numero" ColumnName="Numero" />
-                <ScalarProperty Name="Complemento" ColumnName="Complemento" />
-                <ScalarProperty Name="Bairro" ColumnName="Bairro" />
-                <ScalarProperty Name="Cidade" ColumnName="Cidade" />
-                <ScalarProperty Name="Estado" ColumnName="Estado" />
-                <ScalarProperty Name="Email" ColumnName="Email" />
-                <ScalarProperty Name="Senha" ColumnName="Senha" />
-                <ScalarProperty Name="ConfirmaSenha" ColumnName="ConfirmaSenha" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="funcionario">
-            <EntityTypeMapping TypeName="salaoModel.funcionario">
-              <MappingFragment StoreEntitySet="funcionario">
-                <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
-                <ScalarProperty Name="Nome" ColumnName="Nome" />
-                <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
-                <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-        </EntityContainerMapping>
-      </Mapping>
-    </edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="salaoModelStoreContainer" CdmEntityContainer="salaoEntities">
+    <EntitySetMapping Name="agenda">
+      <EntityTypeMapping TypeName="IsTypeOf(salaoModel.agenda)">
+        <MappingFragment StoreEntitySet="agenda">
+          <ScalarProperty Name="IdAgenda" ColumnName="IdAgenda" />
+          <ScalarProperty Name="NomeCliente" ColumnName="NomeCliente" />
+          <ScalarProperty Name="DataAgenda" ColumnName="DataAgenda" />
+          <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cargo">
+      <EntityTypeMapping TypeName="IsTypeOf(salaoModel.cargo)">
+        <MappingFragment StoreEntitySet="cargo">
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="nomeCargo" ColumnName="nomeCargo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="IsTypeOf(salaoModel.cliente)">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Cpf" ColumnName="Cpf" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="NomeSalao" ColumnName="NomeSalao" />
+          <ScalarProperty Name="Cep" ColumnName="Cep" />
+          <ScalarProperty Name="Rua" ColumnName="Rua" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Cidade" ColumnName="Cidade" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="ConfirmaSenha" ColumnName="ConfirmaSenha" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="funcionario">
+      <EntityTypeMapping TypeName="IsTypeOf(salaoModel.funcionario)">
+        <MappingFragment StoreEntitySet="funcionario">
+          <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
   </edmx:Runtime>
   <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
   <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
@@ -284,7 +283,7 @@
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
-        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>
     </Options>

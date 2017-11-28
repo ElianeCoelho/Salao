@@ -17,15 +17,17 @@ namespace Salao.Controllers
         // GET: cliente
         public ActionResult PerfilCliente()
         {
-
-            int idSessao = int.Parse(Session["IdCliente"].ToString());
-
-            var filtro = from f in db.cliente where f.IdCliente == idSessao select f;
+            
 
 
-            return View(filtro);
+                int idSessao = int.Parse(Session["IdCliente"].ToString());
+
+                var filtro = from f in db.cliente where f.IdCliente == idSessao select f;
+                return View(filtro);
 
         }
+
+
 
         // GET: cliente/Details/5
         public ActionResult Details(int? id)
@@ -134,8 +136,24 @@ namespace Salao.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            if (Session["IdCliente"] != null)
+            {
+
+
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+
+
+
         }
+
+         
+        
 
 
         //Login
@@ -189,3 +207,4 @@ namespace Salao.Controllers
 
     }
 }
+

@@ -17,8 +17,17 @@ namespace Salao.Controllers
         // GET: funcionario
         public ActionResult Index()
         {
-            var funcionario = db.funcionario.Include(f => f.cargo).Include(f => f.cliente);
-            return View(funcionario.ToList());
+            int idSessao = int.Parse(Session["IdCliente"].ToString());
+
+            var filtro = from f in db.funcionario where f.IdCliente == idSessao select f;
+
+            //var func = db.funcionario.Single(f => f.IdCliente == idSessao);
+            //var funcionario = db.funcionario.Include(f => f.cargo).Include(f => f.cliente==idSessao);
+
+
+            return View(filtro.ToList());
+
+            //return View(funcionario.ToList());
         }
 
         // GET: funcionario/Details/5
@@ -39,8 +48,14 @@ namespace Salao.Controllers
         // GET: funcionario/Create
         public ActionResult Create()
         {
+            int idSessao = int.Parse(Session["IdCliente"].ToString());
+
+            var filtro = from c in db.cliente where c.IdCliente == idSessao select c;
+
+
             ViewBag.IdCargo = new SelectList(db.cargo, "IdCargo", "nomeCargo");
-            ViewBag.IdCliente = new SelectList(db.cliente, "IdCliente", "Nome");
+
+            ViewBag.IdCliente = new SelectList(filtro, "IdCliente", "Nome");
             return View();
         }
 
@@ -51,6 +66,7 @@ namespace Salao.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "IdFuncionario,Nome,IdCargo,IdCliente")] funcionario funcionario)
         {
+            
             if (ModelState.IsValid)
             {
                 db.funcionario.Add(funcionario);
@@ -58,8 +74,12 @@ namespace Salao.Controllers
                 return RedirectToAction("Index");
             }
 
+            
+
+
             ViewBag.IdCargo = new SelectList(db.cargo, "IdCargo", "nomeCargo", funcionario.IdCargo);
-            ViewBag.IdCliente = new SelectList(db.cliente, "IdCliente", "Nome", funcionario.IdCliente);
+            
+            ViewBag.IdCliente = new SelectList(db.funcionario, "IdCliente", "Nome", funcionario.IdCliente);
             return View(funcionario);
         }
 
@@ -75,8 +95,14 @@ namespace Salao.Controllers
             {
                 return HttpNotFound();
             }
+
+            int idSessao = int.Parse(Session["IdCliente"].ToString());
+
+            var filtro = from c in db.cliente where c.IdCliente == idSessao select c;
+
+
             ViewBag.IdCargo = new SelectList(db.cargo, "IdCargo", "nomeCargo", funcionario.IdCargo);
-            ViewBag.IdCliente = new SelectList(db.cliente, "IdCliente", "Nome", funcionario.IdCliente);
+            ViewBag.IdCliente = new SelectList(filtro, "IdCliente", "Nome", funcionario.IdCliente);
             return View(funcionario);
         }
 

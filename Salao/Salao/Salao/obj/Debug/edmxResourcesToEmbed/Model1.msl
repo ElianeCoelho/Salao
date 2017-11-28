@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="salaoModelStoreContainer" CdmEntityContainer="salaoEntities">
     <EntitySetMapping Name="agenda">
-      <EntityTypeMapping TypeName="salaoModel.agenda">
+      <EntityTypeMapping TypeName="IsTypeOf(salaoModel.agenda)">
         <MappingFragment StoreEntitySet="agenda">
           <ScalarProperty Name="IdAgenda" ColumnName="IdAgenda" />
           <ScalarProperty Name="NomeCliente" ColumnName="NomeCliente" />
@@ -12,7 +12,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="cargo">
-      <EntityTypeMapping TypeName="salaoModel.cargo">
+      <EntityTypeMapping TypeName="IsTypeOf(salaoModel.cargo)">
         <MappingFragment StoreEntitySet="cargo">
           <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
           <ScalarProperty Name="nomeCargo" ColumnName="nomeCargo" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="cliente">
-      <EntityTypeMapping TypeName="salaoModel.cliente">
+      <EntityTypeMapping TypeName="IsTypeOf(salaoModel.cliente)">
         <MappingFragment StoreEntitySet="cliente">
           <ScalarProperty Name="IdCliente" ColumnName="IdCliente" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
@@ -41,7 +41,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="funcionario">
-      <EntityTypeMapping TypeName="salaoModel.funcionario">
+      <EntityTypeMapping TypeName="IsTypeOf(salaoModel.funcionario)">
         <MappingFragment StoreEntitySet="funcionario">
           <ScalarProperty Name="IdFuncionario" ColumnName="IdFuncionario" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
